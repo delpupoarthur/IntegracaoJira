@@ -12,11 +12,15 @@ https://discordapp.com/api/webhooks/firstPartOfWebhook/secondPartOfWebhook
 ->
 https://skyhook.glitch.me/api/webhooks/firstPartOfWebhook/secondPartOfWebhook
 ```
-
+4. Add the provider you want to the end of the url:
+```
+https://skyhook.glitch.me/api/webhooks/firstPartOfWebhook/secondPartOfWebhook/gitlab
+```
 ## Supported Providers
-- [GitLab](https://gitlab.com/help/user/project/integrations/webhooks)
-- [Travis](https://docs.travis-ci.com/user/notifications/#Webhooks-Delivery-Format)
+- [GitLab](https://gitlab.com/help/user/project/integrations/webhooks) - `/gitlab`
+- [Travis](https://docs.travis-ci.com/user/notifications/#Webhooks-Delivery-Format) - `/travis`
 
+If you want support for a new provider, just c
 
 \ ゜o゜)ノ
 
