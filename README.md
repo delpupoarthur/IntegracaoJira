@@ -1,5 +1,4 @@
 # skyhook
-
 Parses webhooks and forwards them in the proper format to Discord.
 
 ## Setup
@@ -14,13 +13,14 @@ https://skyhook.glitch.me/api/webhooks/firstPartOfWebhook/secondPartOfWebhook
 ```
 4. Add the provider you want to the end of the url:
 ```
-https://skyhook.glitch.me/api/webhooks/firstPartOfWebhook/secondPartOfWebhook/gitlab
+https://skyhook.glitch.me/api/webhooks/firstPartOfWebhook/secondPartOfWebhook/providerGoesHere
 ```
 ## Supported Providers
 - [GitLab](https://gitlab.com/help/user/project/integrations/webhooks) - `/gitlab`
 - [Travis](https://docs.travis-ci.com/user/notifications/#Webhooks-Delivery-Format) - `/travis`
+- [circleci](https://circleci.com/docs/1.0/configuration/#notify) - `/circleci`
 
-If you want support for a new provider, just c
+If you want support for a new provider, just create a pull request and add it!
 
 \ ゜o゜)ノ
 
