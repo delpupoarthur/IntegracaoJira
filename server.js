@@ -16,7 +16,7 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
-app.post("/hooks/:hookPart1/:hookPart2/:from", function (req, res) {
+app.post("/api/webhooks/:hookPart1/:hookPart2/:from", function (req, res) {
   //TODO verify that part1 and 2 exist
   var hookPart1 = req.params.hookPart1;
   var hookPart2 = req.params.hookPart2;
