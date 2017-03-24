@@ -49,6 +49,21 @@ module.exports = {
         var issueUrl = body.object_attributes.url
         discordPayload.content = user + " " + action + " merge request\n" + issueUrl;
         break;
+        
+      case "wiki_page":
+        var action = body.object_attributes.state
+        var user = body.user.username
+        var issueUrl = body.object_attributes.url
+        discordPayload.content = user + " " + action + " wiki page\n" + issueUrl;
+        break;
+        
+      case "pipeline":
+        var pipelineId = body.object_attributes.id
+        var status = body.object_attributes.status
+        //pipeline events don't give us a url, but we can create one
+        var url = body.project.web_url + "/pipelines/" + pipelineId
+        discordPayload.content = "Pipeline status: " + status + "\n" + url;
+        break;
     }
     
   }
