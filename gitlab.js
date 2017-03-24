@@ -8,10 +8,17 @@ module.exports = {
     var url = body.project.web_url
     var type = body.object_kind
     var projectName = body.project.name
-    var numberOfCommits = body.total_commits_count
+    var ref = body.ref
     switch (type) {
       case "push":
+        var numberOfCommits = body.total_commits_count
         discordPayload.content = username + " pushed " + numberOfCommits + " commit(s) to " + projectName + "\n" + url;
+        break;
+      case "tag_push":
+        //get the name of the tag
+        var split = ref.split("/");
+        var tag = split[2]
+        discordPayload.content = username + " pushed tag " + ref + " to " + projectName + "\n" + url + "/tags/" + tag;
         break;
     }
     
