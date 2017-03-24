@@ -5,8 +5,8 @@ module.exports = {
   parse: function (req, discordPayload) {
     var body = req.body
     var id = body.payload.build_num
-    var buildUrl = body.build_url
-    var outcome = body.payload.
-    discordPayload.content = "Build " + id + " " + status + "\n" + buildUrl
+    var buildUrl = body.payload.build_url
+    var outcome = body.payload.outcome
+    discordPayload.content = "Build " + id + " " + outcome + "\n" + buildUrl
   }
 };
