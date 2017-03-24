@@ -5,18 +5,20 @@ module.exports = {
   parse: function (req, discordPayload) {
     var body = req.body
     var username = body.user_name
-    var url = body.project.web_url
     var type = body.object_kind
-    var projectName = body.project.name
     var ref = body.ref
     switch (type) {
         
       case "push":
+        var url = body.project.web_url
+        var projectName = body.project.name
         var numberOfCommits = body.total_commits_count
         discordPayload.content = username + " pushed " + numberOfCommits + " commit(s) to " + projectName + "\n" + url;
         break;
         
       case "tag_push":
+        var url = body.project.web_url
+        var projectName = body.project.name
         //get the name of the tag
         var split = ref.split("/");
         var tag = split[2]
@@ -24,6 +26,7 @@ module.exports = {
         break;
         
       case "issue":
+        var projectName = body.project.name
         var action = body.object_attributes.state
         var user = body.user.username
         var issueUrl = body.object_attributes.url
@@ -31,6 +34,7 @@ module.exports = {
         break;
         
       case "note":
+        var projectName = body.project.name
         var action = body.object_attributes.state
         var user = body.user.username
         var noteUrl = body.object_attributes.url
@@ -43,7 +47,7 @@ module.exports = {
         var action = body.object_attributes.state
         var user = body.user.username
         var issueUrl = body.object_attributes.url
-        discordPayload.content = user + " " + action + " issue on " + projectName + "\n" + issueUrl;
+        discordPayload.content = user + " " + action + " merge request\n" + issueUrl;
         break;
     }
     
