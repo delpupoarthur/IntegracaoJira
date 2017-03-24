@@ -20,6 +20,18 @@ module.exports = {
         var tag = split[2]
         discordPayload.content = username + " pushed tag " + ref + " to " + projectName + "\n" + url + "/tags/" + tag;
         break;
+      case "issue":
+        var action = body.object_attributes.state
+        var user = body.user.username
+        var issueUrl = body.object_attributes.url
+        discordPayload.content = user + " " + action + " issue on " + projectName + "\n" + issueUrl;
+        break;
+      case "note":
+        var action = body.object_attributes.state
+        var user = body.user.username
+        var issueUrl = body.object_attributes.url
+        discordPayload.content = user + " commented on " + action + " issue on " + projectName + "\n" + issueUrl;
+        break;
     }
     
   }
