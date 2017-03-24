@@ -64,6 +64,14 @@ module.exports = {
         var url = body.project.web_url + "/pipelines/" + pipelineId
         discordPayload.content = "Pipeline status: " + status + "\n" + url;
         break;
+        
+      case "build":
+        var buildId = body.build_id
+        var status = body.build_status
+        //pipeline events don't give us a url, but we can create one
+        var url = body.repository.homepage + "/builds/" + buildId
+        discordPayload.content = "Build status: " + status + "\n" + url;
+        break;
     }
     
   }
