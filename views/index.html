@@ -8,7 +8,6 @@
          rel="stylesheet"
          href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       <style>
          :root {
          --mdc-theme-primary: #009688;
@@ -19,14 +18,6 @@
          .demo-paragraph {
          margin: 0px;
          padding: 20px 16px;
-         }
-         .material-icons {
-         text-decoration: none;
-         cursor: pointer;
-         padding-right: 8px;
-         }
-         [dir='rtl'] .material-icons {
-         padding-left: 8px;
          }
          .demo-card {
          margin-top: 48px;
@@ -88,7 +79,7 @@
                   mdc-button--primary
                   mdc-ripple-surface"
                   data-mdc-auto-init="MDCRipple">
-               Convert
+               Generate
                </button>
             </form>
             <!-- The p element below is where we'll eventually output our greeting -->
@@ -107,6 +98,7 @@
       </body>
    </main>
    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script src="https://wzrd.in/standalone/copy-to-clipboard@latest" async></script>
    <script>
       window.mdc.autoInit();
       
@@ -118,7 +110,7 @@
         
           var show = function(sb) {
               var data =  {
-                message: "URL Generated",
+                message: "URL Generated. Copied to Clipboard",
                 multiline: false
               };
               
@@ -129,12 +121,13 @@
           evt.preventDefault();
           var discordHookUrl = evt.target.elements.url.value;
           if (discordHookUrl) {
-            discordHookUrl.replace("discordapp.com", "skyhook.glitch.me")
+            discordHookUrl = discordHookUrl.replace("discordapp.com", "skyhook.glitch.me")
             //add the provider
           }
           console.log(discordHookUrl)
           show(snackbar);
       
+            window.copyToClipboard(discordHookUrl);
           document.getElementById('greeting').textContent = discordHookUrl;
         });
         
