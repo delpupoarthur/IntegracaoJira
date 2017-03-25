@@ -29,29 +29,34 @@
               </div>
             </div>
           </div>
-          <section>
-            <p>Provider</p>
-            <div class="mdc-form-field">
-              <div class="mdc-radio">
-                <input class="mdc-radio__native-control" type="radio" id="ex2-radio1" checked name="ex2">
-                <div class="mdc-radio__background">
-                  <div class="mdc-radio__outer-circle"></div>
-                  <div class="mdc-radio__inner-circle"></div>
-                </div>
-              </div>
-              <label id="ex2-radio1-label" for="ex2-radio1">GitLab</label>
+          <h2>Fully-Featured Component</h2>
+        <section id="demo-wrapper">
+          <div id="js-select" class="mdc-select" role="listbox" tabindex="0">
+            <span class="mdc-select__selected-text">Pick a food group</span>
+            <div class="mdc-simple-menu mdc-select__menu">
+              <ul class="mdc-list mdc-simple-menu__items">
+                <li class="mdc-list-item" role="option" id="grains" tabindex="0">
+                  Bread, Cereal, Rice, and Pasta
+                </li>
+                <li class="mdc-list-item" role="option" id="vegetables" tabindex="0">
+                  Vegetables
+                </li>
+                <li class="mdc-list-item" role="option" id="fruit" tabindex="0">
+                  Fruit
+                </li>
+                <li class="mdc-list-item" role="option" id="dairy" tabindex="0">
+                  Milk, Yogurt, and Cheese
+                </li>
+                <li class="mdc-list-item" role="option" id="meat" tabindex="0">
+                  Meat, Poultry, Fish, Dry Beans, Eggs, and Nuts
+                </li>
+                <li class="mdc-list-item" role="option" id="fats" tabindex="0">
+                  Fats, Oils, and Sweets
+                </li>
+              </ul>
             </div>
-            <div class="mdc-form-field">
-              <div class="mdc-radio">
-                <input class="mdc-radio__native-control" type="radio" id="ex2-radio2" name="ex2">
-                <div class="mdc-radio__background">
-                  <div class="mdc-radio__outer-circle"></div>
-                  <div class="mdc-radio__inner-circle"></div>
-                </div>
-              </div>
-              <label id="ex2-radio2-label" for="ex2-radio2">AppVeyor</label>
-            </div>
-          </section>
+          </div>
+        </section>
           <br />
           <button type="submit"
             class="mdc-button
@@ -80,6 +85,7 @@
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <script src="https://wzrd.in/standalone/copy-to-clipboard@latest" async></script>
   <script>
+    
     window.mdc.autoInit();
     
     (function(global) {
@@ -98,32 +104,30 @@
         }
       
         document.getElementById('greeting-form').addEventListener('submit', function(evt) {
-        evt.preventDefault();
-        var discordHookUrl = evt.target.elements.url.value;
-        if (discordHookUrl) {
-          discordHookUrl = discordHookUrl.replace("discordapp.com", "skyhook.glitch.me")
-          //add the provider
-        }
-        console.log(discordHookUrl)
-        show(snackbar);
-    
-          window.copyToClipboard(discordHookUrl);
-        document.getElementById('greeting').textContent = discordHookUrl;
-      });
-      
-        var MDCFormField = global.mdc.formField.MDCFormField;
-        var MDCRadio = global.mdc.radio.MDCRadio;
-    
-        var formFields = document.querySelectorAll('.mdc-form-field');
-        for (var i = 0, formField; formField = formFields[i]; i++) {
-          var formFieldInstance = new MDCFormField(formField);
-    
-          var radio = formField.querySelector('.mdc-radio:not([data-demo-no-js])');
-          if (radio) {
-            var radioInstance = new MDCRadio(radio);
-            formFieldInstance.input = radioInstance;
+          evt.preventDefault();
+          var discordHookUrl = evt.target.elements.url.value;
+          if (discordHookUrl) {
+            discordHookUrl = discordHookUrl.replace("discordapp.com", "skyhook.glitch.me")
+            //add the provider
           }
-        }
+          console.log(discordHookUrl)
+          show(snackbar);
+
+            window.copyToClipboard(discordHookUrl);
+          document.getElementById('greeting').textContent = discordHookUrl;
+        });
+      
+        var MDCSelect = mdc.select.MDCSelect;
+        var root = document.getElementById('js-select');
+        var currentlySelected = document.getElementById('currently-selected');
+        var select = MDCSelect.attachTo(root);
+        root.addEventListener('MDCSelect:change', function() {
+          var item = select.selectedOptions[0];
+          var index = select.selectedIndex;
+          currentlySelected.textContent = '"' + item.textContent + '" at index ' + index +
+           ' with value "' + select.value + '"';
+        });
+      
       })(this);
     
     
