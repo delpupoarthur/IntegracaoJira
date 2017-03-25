@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Greeting App</title>
+    <title>skyhook</title>
     <link
       rel="stylesheet"
       href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
     <style>
       :root {
-        --mdc-theme-primary: #ff0000;
+        --mdc-theme-primary: #009688;
       }
-</style>
+    </style>
   </head>
   <main>
   <h1 class="mdc-typography--display1">skyhook</h1>
@@ -63,7 +64,18 @@
   </form>
 
   <!-- The p element below is where we'll eventually output our greeting -->
-  <p class="mdc-typography--headline" id="greeting"></p>
+  <p id="greeting"></p>
+    
+    <div id="mdc-js-snackbar"
+             class="mdc-snackbar"
+             aria-live="assertive"
+             aria-atomic="true"
+             aria-hidden="true">
+          <div class="mdc-snackbar__text"></div>
+          <div class="mdc-snackbar__action-wrapper">
+            <button type="button" class="mdc-button mdc-snackbar__action-button"></button>
+          </div>
+        </div>
 </main>
 
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -72,6 +84,10 @@
   
     (function(global) {
         'use strict';
+      
+        var MDCSnackbar = global.mdc.snackbar.MDCSnackbar;
+        var snackbar = new MDCSnackbar(document.getElementById('mdc-js-snackbar'));
+      
       
         document.getElementById('greeting-form').addEventListener('submit', function(evt) {
         evt.preventDefault();
