@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>skyhook</title>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -61,8 +59,7 @@
           Generate
           </button>
         </form>
-        <!-- The p element below is where we'll eventually output our greeting -->
-        <p id="greeting"></p>
+        
         <div id="mdc-js-snackbar"
           class="mdc-snackbar"
           aria-live="assertive"
@@ -108,12 +105,10 @@
           show(snackbar);
 
           window.copyToClipboard(discordHookUrl);
-          document.getElementById('greeting').textContent = discordHookUrl;
         });
       
         var MDCSelect = mdc.select.MDCSelect;
-        var root = document.getElementById('js-select');
-        var currentlySelected = document.getElementById('currently-selected');
+        var select = document.getElementById('js-select');
         var select = MDCSelect.attachTo(root);
         root.addEventListener('MDCSelect:change', function() {
           var item = select.selectedOptions[0];
