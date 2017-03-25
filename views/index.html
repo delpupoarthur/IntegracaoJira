@@ -14,7 +14,7 @@
 </style>
   </head>
   <main>
-  <h1 class="mdc-typography--display1">Tell us about yourself!</h1>
+  <h1 class="mdc-typography--display1">skyhook</h1>
 
   <form action="#" id="greeting-form">
     <div>
@@ -27,6 +27,30 @@
         </div>
       </div>
     </div>
+    
+    <section>
+        <h2>Provider</h2>
+        <div class="mdc-form-field">
+          <div class="mdc-radio">
+            <input class="mdc-radio__native-control" type="radio" id="ex2-radio1" checked name="ex2">
+            <div class="mdc-radio__background">
+              <div class="mdc-radio__outer-circle"></div>
+              <div class="mdc-radio__inner-circle"></div>
+            </div>
+          </div>
+          <label id="ex2-radio1-label" for="ex2-radio1">GitLab</label>
+        </div>
+        <div class="mdc-form-field">
+          <div class="mdc-radio">
+            <input class="mdc-radio__native-control" type="radio" id="ex2-radio2" name="ex2">
+            <div class="mdc-radio__background">
+              <div class="mdc-radio__outer-circle"></div>
+              <div class="mdc-radio__inner-circle"></div>
+            </div>
+          </div>
+          <label id="ex2-radio2-label" for="ex2-radio2">AppVeyor</label>
+        </div>
+      </section>
 
     <button type="submit"
             class="mdc-button
@@ -37,51 +61,42 @@
       Convert
     </button>
   </form>
-    
-    <section id="demo-wrapper">
-          <div id="js-select" class="mdc-select" role="listbox" tabindex="0">
-            <span class="mdc-select__selected-text">Pick a food group</span>
-            <div class="mdc-simple-menu mdc-select__menu">
-              <ul class="mdc-list mdc-simple-menu__items">
-                <li class="mdc-list-item" role="option" id="grains" tabindex="0">
-                  Bread, Cereal, Rice, and Pasta
-                </li>
-                <li class="mdc-list-item" role="option" id="vegetables" tabindex="0">
-                  Vegetables
-                </li>
-                <li class="mdc-list-item" role="option" id="fruit" tabindex="0">
-                  Fruit
-                </li>
-                <li class="mdc-list-item" role="option" id="dairy" tabindex="0">
-                  Milk, Yogurt, and Cheese
-                </li>
-                <li class="mdc-list-item" role="option" id="meat" tabindex="0">
-                  Meat, Poultry, Fish, Dry Beans, Eggs, and Nuts
-                </li>
-                <li class="mdc-list-item" role="option" id="fats" tabindex="0">
-                  Fats, Oils, and Sweets
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <p>Currently selected: <span id="currently-selected">(none)</span></p>
 
   <!-- The p element below is where we'll eventually output our greeting -->
   <p class="mdc-typography--headline" id="greeting"></p>
 </main>
 
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-<script>window.mdc.autoInit();</script>
-  <script>
-  document.getElementById('greeting-form').addEventListener('submit', function(evt) {
-    evt.preventDefault();
-    var discordHookUrl = evt.target.elements.firstname.value;
-    if (discordHookUrl) {
-      //TODO transform to the other url
-    }
+<script>
+    window.mdc.autoInit();
+  
+    (function(global) {
+        'use strict';
+        var MDCFormField = global.mdc.formField.MDCFormField;
+        var MDCRadio = global.mdc.radio.MDCRadio;
 
-    document.getElementById('greeting').textContent = discordHookUrl;
-  });
+        var formFields = document.querySelectorAll('.mdc-form-field');
+        for (var i = 0, formField; formField = formFields[i]; i++) {
+          var formFieldInstance = new MDCFormField(formField);
+
+          var radio = formField.querySelector('.mdc-radio:not([data-demo-no-js])');
+          if (radio) {
+            var radioInstance = new MDCRadio(radio);
+            formFieldInstance.input = radioInstance;
+          }
+        }
+      })(this);
+    
+    document.getElementById('greeting-form').addEventListener('submit', function(evt) {
+      evt.preventDefault();
+      var discordHookUrl = evt.target.elements.firstname.value;
+      if (discordHookUrl) {
+        discordHookUrl.replace("discordapp.com", "skyhook.glitch.me")
+        //add the provider
+      }
+      console.log(discordHookUrl)
+
+      document.getElementById('greeting').textContent = discordHookUrl;
+    });
 </script>
 </html>
