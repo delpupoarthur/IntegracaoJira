@@ -20,8 +20,8 @@
     <div>
       <div class="mdc-form-field">
         <div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
-          <input id="firstname" type="text" class="mdc-textfield__input">
-          <label for="firstname" class="mdc-textfield__label">
+          <input id="url" type="text" class="mdc-textfield__input">
+          <label for="url" class="mdc-textfield__label">
             Discord Webhook URL
           </label>
         </div>
@@ -72,6 +72,19 @@
   
     (function(global) {
         'use strict';
+      
+        document.getElementById('greeting-form').addEventListener('submit', function(evt) {
+        evt.preventDefault();
+        var discordHookUrl = evt.target.elements.url.value;
+        if (discordHookUrl) {
+          discordHookUrl.replace("discordapp.com", "skyhook.glitch.me")
+          //add the provider
+        }
+        console.log(discordHookUrl)
+
+        document.getElementById('greeting').textContent = discordHookUrl;
+      });
+      
         var MDCFormField = global.mdc.formField.MDCFormField;
         var MDCRadio = global.mdc.radio.MDCRadio;
 
@@ -87,16 +100,6 @@
         }
       })(this);
     
-    document.getElementById('greeting-form').addEventListener('submit', function(evt) {
-      evt.preventDefault();
-      var discordHookUrl = evt.target.elements.firstname.value;
-      if (discordHookUrl) {
-        discordHookUrl.replace("discordapp.com", "skyhook.glitch.me")
-        //add the provider
-      }
-      console.log(discordHookUrl)
-
-      document.getElementById('greeting').textContent = discordHookUrl;
-    });
+    
 </script>
 </html>
