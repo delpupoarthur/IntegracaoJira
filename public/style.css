@@ -12,3 +12,7 @@
    padding-top: 48px;
    padding-bottom: 48px;
 }
+
+.skyhook-select {
+  z-index: 5;
+}
