@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="mdc-typography">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -15,6 +15,18 @@
     </style>
   </head>
   <main>
+    <body class="mdc-typography mdc-toolbar-demo">
+    <header class="mdc-toolbar">
+      <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+        <a class="material-icons">menu</a>
+        <span class="mdc-toolbar__title">Title</span>
+      </section>
+      <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
+        <a class="material-icons" aria-label="Download" alt="Download">file_download</a>
+        <a class="material-icons" aria-label="Print this page" alt="Print this page">print</a>
+        <a class="material-icons" aria-label="Bookmark this page" alt="Bookmark this page">bookmark</a>
+      </section>
+    </header>
   <h1 class="mdc-typography--display1">skyhook</h1>
 
   <form action="#" id="greeting-form">
@@ -76,6 +88,7 @@
             <button type="button" class="mdc-button mdc-snackbar__action-button"></button>
           </div>
     </div>
+    </body>
 </main>
 
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
