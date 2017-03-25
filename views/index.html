@@ -8,24 +8,41 @@
       rel="stylesheet"
       href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
       :root {
         --mdc-theme-primary: #009688;
+      }
+      
+      .mdc-toolbar-demo {
+        margin: 0px;
+      }
+      .demo-paragraph {
+        margin: 0px;
+        padding: 20px 16px;
+      }
+      .material-icons {
+        text-decoration: none;
+        cursor: pointer;
+        padding-right: 8px;
+      }
+      [dir='rtl'] .material-icons {
+        padding-left: 8px;
       }
     </style>
   </head>
   <main>
     <body class="mdc-typography mdc-toolbar-demo">
-    <header class="mdc-toolbar">
-      <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-        <a class="material-icons">menu</a>
-        <span class="mdc-toolbar__title">Title</span>
-      </section>
-      <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
-        <a class="material-icons" aria-label="Download" alt="Download">file_download</a>
-        <a class="material-icons" aria-label="Print this page" alt="Print this page">print</a>
-        <a class="material-icons" aria-label="Bookmark this page" alt="Bookmark this page">bookmark</a>
-      </section>
+      <header class="mdc-toolbar">
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+        
+          <span class="mdc-toolbar__title">skyhook</span>
+        </section>
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
+          <a class="material-icons" aria-label="Download" alt="Download">file_download</a>
+          <a class="material-icons" aria-label="Print this page" alt="Print this page">print</a>
+          <a class="material-icons" aria-label="Bookmark this page" alt="Bookmark this page">bookmark</a>
+        </section>
     </header>
   <h1 class="mdc-typography--display1">skyhook</h1>
 
