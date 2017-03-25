@@ -100,6 +100,22 @@
           if (discordHookUrl) {
             discordHookUrl = discordHookUrl.replace("discordapp.com", "skyhook.glitch.me")
             //add the provider
+            var index = select.selectedIndex
+            switch(index) {
+              case 0:
+                discordHookUrl = discordHookUrl + "/appveyor"
+                break;
+              case 1:
+                discordHookUrl = discordHookUrl + "/circleci"
+                break;
+              case 2:
+                discordHookUrl = discordHookUrl + "/gitlab"
+                break;
+              case 3:
+                discordHookUrl = discordHookUrl + "/travis"
+                break;
+            }
+            
           }
           console.log(discordHookUrl)
           show(snackbar);
@@ -108,14 +124,8 @@
         });
       
         var MDCSelect = mdc.select.MDCSelect;
-        var select = document.getElementById('js-select');
-        var select = MDCSelect.attachTo(root);
-        root.addEventListener('MDCSelect:change', function() {
-          var item = select.selectedOptions[0];
-          var index = select.selectedIndex;
-          currentlySelected.textContent = '"' + item.textContent + '" at index ' + index +
-           ' with value "' + select.value + '"';
-        });
+        var selectElement = document.getElementById('js-select');
+        var select = MDCSelect.attachTo(selectElement);
       
       })(this);
     
