@@ -10,6 +10,19 @@ window.mdc.autoInit();
     var MDCSnackbar = global.mdc.snackbar.MDCSnackbar;
     var snackbar = new MDCSnackbar(document.getElementById('mdc-js-snackbar'));
 
+    var MDCFormField = global.mdc.formField.MDCFormField;
+    var MDCRadio = global.mdc.radio.MDCRadio;
+
+    var formFields = document.querySelectorAll('.mdc-form-field');
+    for (var i = 0, formField; formField = formFields[i]; i++) {
+      var formFieldInstance = new MDCFormField(formField);
+
+      var radio = formField.querySelector('.mdc-radio:not([data-demo-no-js])');
+      if (radio) {
+        var radioInstance = new MDCRadio(radio);
+        formFieldInstance.input = radioInstance;
+      }
+    }
     var show = function(sb, theMessage) {
         var data =  {
           message: theMessage,
@@ -26,7 +39,8 @@ window.mdc.autoInit();
       if (discordHookUrl) {
         discordHookUrl = discordHookUrl.replace("discordapp.com", "skyhook.glitch.me")
         //add the provider
-        var index = select.selectedIndex
+        //TODO fix
+        var index = 0
         switch(index) {
           case 0:
             discordHookUrl = discordHookUrl + "/appveyor"
@@ -55,9 +69,5 @@ window.mdc.autoInit();
         show(snackbar, "Unable to create URL. Please fill in all fields");
       }
     });
-
-    var MDCSelect = mdc.select.MDCSelect;
-    var selectElement = document.getElementById('js-select');
-    var select = MDCSelect.attachTo(selectElement);
 
   })(this);
