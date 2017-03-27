@@ -10,9 +10,9 @@ window.mdc.autoInit();
     var MDCSnackbar = global.mdc.snackbar.MDCSnackbar;
     var snackbar = new MDCSnackbar(document.getElementById('mdc-js-snackbar'));
 
-    var show = function(sb) {
+    var show = function(sb, theMessage) {
         var data =  {
-          message: "URL Generated. Copied to Clipboard",
+          message: theMessage,
           multiline: false
         };
 
@@ -22,6 +22,7 @@ window.mdc.autoInit();
     document.getElementById('greeting-form').addEventListener('submit', function(evt) {
       evt.preventDefault();
       var discordHookUrl = evt.target.elements.url.value;
+      var error = false
       if (discordHookUrl) {
         discordHookUrl = discordHookUrl.replace("discordapp.com", "skyhook.glitch.me")
         //add the provider
@@ -39,13 +40,20 @@ window.mdc.autoInit();
           case 3:
             discordHookUrl = discordHookUrl + "/travis"
             break;
+          default:
+            error = true
+            break;
         }
-
+      } else {
+        error = true
       }
-      console.log(discordHookUrl)
-      show(snackbar);
 
-      window.copyToClipboard(discordHookUrl);
+      if (!error){
+        window.copyToClipboard(discordHookUrl);
+        show(snackbar, "URL Generated. Copied to Clipboard");
+      } else {
+        show(snackbar, "Unable to create URL. Please fill in all fields");
+      }
     });
 
     var MDCSelect = mdc.select.MDCSelect;
