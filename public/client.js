@@ -36,7 +36,7 @@ window.mdc.autoInit();
   }
   
   var button = document.getElementById('button-generate')
-  button.addEventListener('click', function(evt) {
+  button.addEventListener('mousedown', function(evt) {
     var discordHookUrl = evt.target.elements.url.value;
     var error = false
     if (discordHookUrl) {
@@ -73,6 +73,6 @@ window.mdc.autoInit();
     }
   });
   
-  button.addEventListener("click", function(){ alert("Hello World!"); });
+  button.addEventListener("pointerup", function(){ alert("Hello World!"); });
   
 })(this);
