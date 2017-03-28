@@ -18,11 +18,11 @@ window.mdc.autoInit();
   for (var i = 0, formField; formField = formFields[i]; i++) {
     var formFieldInstance = new MDCFormField(formField);
     
-    // var radio = formField.querySelector('.mdc-radio:not([data-demo-no-js])');
-    // if (radio) {
-    //   var radioInstance = new MDCRadio(radio);
-    //   formFieldInstance.input = radioInstance;
-    // }
+    var radio = formField.querySelector('.mdc-radio:not([data-demo-no-js])');
+    if (radio) {
+      var radioInstance = new MDCRadio(radio);
+      formFieldInstance.input = radioInstance;
+    }
   }
   
   
