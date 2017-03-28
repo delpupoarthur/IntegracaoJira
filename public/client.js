@@ -36,6 +36,9 @@ window.mdc.autoInit();
   }
   
   var button = document.getElementById('button-generate')
+  $("#button-generate").click(function(){
+        alert("button");
+    }); 
   button.addEventListener('mousedown', function(evt) {
     var discordHookUrl = evt.target.elements.url.value;
     var error = false
