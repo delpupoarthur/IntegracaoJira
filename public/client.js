@@ -6,7 +6,7 @@ window.mdc.autoInit();
 
 (function(global) {
   'use strict';
-  
+  console.log("initing")
   var MDCSnackbar = global.mdc.snackbar.MDCSnackbar;
   var snackbar = new MDCSnackbar(document.getElementById('mdc-js-snackbar'));
   
@@ -35,8 +35,8 @@ window.mdc.autoInit();
     sb.show(data);
   }
   
-  document.getElementById('greeting-form').addEventListener('submit', function(evt) {
-    evt.preventDefault();
+  var button = document.getElementById('button-generate')
+  button.addEventListener('click', function(evt) {
     var discordHookUrl = evt.target.elements.url.value;
     var error = false
     if (discordHookUrl) {
@@ -72,5 +72,7 @@ window.mdc.autoInit();
       show(snackbar, "Unable to create URL. Please fill in all fields");
     }
   });
+  
+  button.addEventListener("click", function(){ alert("Hello World!"); });
   
 })(this);
