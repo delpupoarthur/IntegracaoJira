@@ -1,6 +1,8 @@
 # skyhook
 Parses webhooks and forwards them in the proper format to Discord.
 
+[![Join Us On Discord](https://img.shields.io/badge/Discord-skyhook-blue.svg)](https://discord.gg/js7wD7p) [![Build Status](https://travis-ci.org/Commit451/skyhook.svg?branch=master)](https://travis-ci.org/Commit451/skyhook)
+
 ## Setup
 You can use the [site](https://skyhook.glitch.me/) to create the right webhook link.
 1. Create a webhook in Discord (Server Settings -> Webhooks -> Create Webhook)
@@ -22,6 +24,7 @@ https://skyhook.glitch.me/api/webhooks/firstPartOfWebhook/secondPartOfWebhook/pr
 - [circleci](https://circleci.com/docs/1.0/configuration/#notify) - `/circleci`
 - [AppVeyor](https://www.appveyor.com/docs/notifications/#webhook-payload-default) - `/appveyor`
 - [Unity Cloud](https://build-api.cloud.unity3d.com/docs/1.0.0/index.html#operation-webhooks-intro) - `/unity`
+- [BitBucket](https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html) - `/bitbucket`
 
 If you want support for a new provider, just create a pull request and add it!
 
