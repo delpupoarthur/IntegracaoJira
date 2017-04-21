@@ -48,12 +48,15 @@ window.mdc.autoInit();
                     discordHookUrl = discordHookUrl + "/gitlab";
                     break;
                 case 4:
-                    discordHookUrl = discordHookUrl + "/travis";
+                    discordHookUrl = discordHookUrl + "/heroku";
                     break;
                 case 5:
+                    discordHookUrl = discordHookUrl + "/travis";
+                    break;
+                case 6:
                     discordHookUrl = discordHookUrl + "/unity";
                     break;
-                
+
                 default:
                     error = true;
                     break;
