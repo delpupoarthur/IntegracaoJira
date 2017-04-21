@@ -72,6 +72,7 @@ app.post("/api/webhooks/:hookPart1/:hookPart2/:from", function (req, res) {
         body: jsonString
     }, function (error, response, body) {
         if (error) {
+            console.log(error)
             res.sendStatus(400);
         } else {
             res.sendStatus(200);
