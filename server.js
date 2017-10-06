@@ -18,7 +18,8 @@ const providers = {
     patreon: require('./providers/patreon'),
     trello: require('./providers/trello'),
     travis: require('./providers/travis'),
-    unity: require('./providers/unity')
+	unity: require('./providers/unity'),
+	vsts: require('./providers/vsts')
 };
 
 if (process.env.PRODUCTION) {
@@ -77,7 +78,13 @@ app.post("/api/webhooks/:webhookID/:webhookSecret/:from", async function (req, r
 
     if (typeof providers[provider] !== 'undefined') {
         const instance = new providers[provider]();
-        discordPayload = await instance.parse(req);
+        try {
+            discordPayload = await instance.parse(req);
+        } catch (error) {
+            console.log('Error during parse:', error);
+            res.sendStatus(500);
+            //Winston doesn't log errors?? winston.error(error)
+        }
     } else {
         winston.error('Unknown provider "' + provider + '"');
     }
