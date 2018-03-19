@@ -73,7 +73,6 @@ class Patreon extends BaseProvider {
 
     _createUpdateCommon(type) {
         let embed = {};
-      console.log(this.body)
         const creator_id = this.body.data.relationships.creator.data.id;
         const patron_id = this.body.data.relationships.patron.data.id;
         const reward_id = this.body.data.relationships.reward.data.id;
