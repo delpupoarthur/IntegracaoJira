@@ -5,12 +5,13 @@ require('dotenv').config()
 
 import axios from 'axios'
 import * as fs from 'fs'
-import { BaseProvider } from './model/BaseProvider'
 import { DiscordPayload } from './model/DiscordPayload'
-import { AppVeyor } from './providers/Appveyor'
+import { AppVeyor } from './provider/Appveyor'
+import { BaseProvider } from './provider/BaseProvider'
+import { NewRelic } from './provider/NewRelic'
 import { ErrorUtil } from './util/ErrorUtil'
 
-testPayloadVisual(new AppVeyor(), 'appveyor.json')
+testPayloadVisual(new NewRelic(), 'newrelic.json')
 
 function testPayloadVisual(provider: BaseProvider, jsonFileName: string) {
     const json = fs.readFileSync(`./test/${jsonFileName}`, 'utf-8')
