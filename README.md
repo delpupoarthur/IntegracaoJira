@@ -23,7 +23,7 @@ https://skyhook.glitch.me/api/webhooks/firstPartOfWebhook/secondPartOfWebhook/pr
 - [Bintray](https://bintray.com/docs/api/#_webhooks) - `/bintray`
 - [BitBucket](https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html) - `/bitbucket`
 - [BitBucket Server](https://confluence.atlassian.com/bitbucketserver/event-payload-938025882.html) - `/bitbucketserver`
-- [circleci](https://circleci.com/docs/1.0/configuration/#notify) - `/circleci`
+- [CircleCI](https://circleci.com/docs/1.0/configuration/#notify) - `/circleci`
 - [Codacy](https://support.codacy.com/hc/en-us/articles/207280359-WebHook-Notifications) - `/codacy`
 - [Dockerhub](https://docs.docker.com/docker-hub/webhooks) - `/dockerhub`
 - [GitLab](https://gitlab.com/help/user/project/integrations/webhooks) - `/gitlab`
@@ -33,6 +33,7 @@ https://skyhook.glitch.me/api/webhooks/firstPartOfWebhook/secondPartOfWebhook/pr
 - [NewRelic](https://docs.newrelic.com/docs/alerts/new-relic-alerts/managing-notification-channels/customize-your-webhook-payload) - `/newrelic`
 - [Patreon](https://www.patreon.com/platform/documentation/webhooks) - `/patreon`
 - [Pingdom](https://www.pingdom.com/resources/webhooks) - `/pingdom`
+- [Rollbar](https://docs.rollbar.com/docs/webhooks) - `/rollbar`
 - [Travis](https://docs.travis-ci.com/user/notifications/#Webhooks-Delivery-Format) - `/travis`
 - [Trello](https://developers.trello.com/apis/webhooks) - `/trello`
 - [Unity Cloud](https://build-api.cloud.unity3d.com/docs/1.0.0/index.html#operation-webhooks-intro) - `/unity`
