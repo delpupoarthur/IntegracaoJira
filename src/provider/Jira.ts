@@ -48,7 +48,7 @@ class Jira extends BaseProvider {
         embed.title = `${issue.key} - ${issue.fields.summary}`
         embed.url = `${domain}/browse/${issue.key}`
         if (isIssue) {
-            embed.description = `${user.displayName} ${action} issue: ${embed.title} (${issue.fields.assignee.displayName})`
+            embed.description = `${user.displayName} ${action} issue: ${embed.title} (assigned to ${issue.fields.assignee.displayName})`
         } else {
             const comment = this.body.comment
             embed.description = `${comment.updateAuthor.displayName} ${action} comment: ${comment.body}`
